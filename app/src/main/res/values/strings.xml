@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">UnitConverterApp</string>
+    <string name="weight_converter">Weight Converter</string>
+</resources>
