@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 
 import kees.rijpstra.unitconverterapp.databinding.ActivityMainBinding
 import java.math.BigDecimal
@@ -33,10 +34,16 @@ class MainActivity : AppCompatActivity() {
 
         switchChecked.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
+                // makes the colors darker for dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 val toolBar = binding.myToolbar
                 val icon = binding.toolBarIcon
-                toolBar.setBackgroundColor(Color.parseColor("#f44336"))
+                val bg = binding.bgRed
+                val outcome = binding.tvOutcome
+                outcome.setTextColor(ContextCompat.getColor(this,R.color.red_dark))
+                outcome.setHintTextColor(ContextCompat.getColor(this,R.color.red_dark))
+                bg.setImageResource(R.drawable.red_bg_dark)
+                toolBar.setBackgroundColor(Color.parseColor("#ba000d"))
                 icon.setImageResource(R.drawable.ic_baseline_light_mode_24)
 
             } else {
