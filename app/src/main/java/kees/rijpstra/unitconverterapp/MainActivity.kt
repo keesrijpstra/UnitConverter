@@ -11,6 +11,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 
 import kees.rijpstra.unitconverterapp.databinding.ActivityMainBinding
+import java.math.BigDecimal
+import java.math.RoundingMode
+import kotlin.math.roundToLong
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +35,10 @@ class MainActivity : AppCompatActivity() {
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 val toolBar = binding.myToolbar
+                val icon = binding.toolBarIcon
                 toolBar.setBackgroundColor(Color.parseColor("#f44336"))
+                icon.setImageResource(R.drawable.ic_baseline_light_mode_24)
+
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
@@ -53,36 +59,46 @@ class MainActivity : AppCompatActivity() {
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 0 && mSelectedOption2 == 0){
                 var resultInNumbers = insertedAmount.toDouble() * 1
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 0 && mSelectedOption2 == 1){
                 var resultInNumbers = insertedAmount.toDouble() * 1000
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 0 && mSelectedOption2 == 2){
                 var resultInNumbers = insertedAmount.toDouble() * 35.274
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 0 && mSelectedOption2 == 3){
                 var resultInNumbers = insertedAmount.toDouble() * 0.001
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 0 && mSelectedOption2 == 4){
                 var resultInNumbers = insertedAmount.toDouble() * 2.20462
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
             // einde kilos
@@ -90,39 +106,48 @@ class MainActivity : AppCompatActivity() {
             // grammen
             if (insertedAmount.isNotEmpty() && mSelectedOption == 1 && mSelectedOption2 == 0){
                 var resultInNumbers = insertedAmount.toDouble() / 1000
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 1 && mSelectedOption2 == 1){
                 var resultInNumbers = insertedAmount.toDouble() / 1
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 1 && mSelectedOption2 == 2){
                 var resultInNumbers = insertedAmount.toDouble() / 28.35
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
-
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 1 && mSelectedOption2 == 3){
                 var resultInNumbers = insertedAmount.toDouble() / 1000000
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
             if (insertedAmount.isNotEmpty() && mSelectedOption == 1 && mSelectedOption2 == 4){
                 var resultInNumbers = insertedAmount.toDouble() / 453.6
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -134,8 +159,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() / 35.274
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -143,8 +170,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() * 28.35
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -152,8 +181,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() * 1
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -161,8 +192,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() / 35270
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -170,8 +203,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() / 16
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -183,8 +218,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() * 1000
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -192,8 +229,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() * 1000000
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -201,8 +240,11 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() * 35270
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -210,17 +252,20 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() * 1
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
             if (insertedAmount.isNotEmpty() && mSelectedOption == 3 && mSelectedOption2 == 4){
                 var resultInNumbers = insertedAmount.toDouble() * 2205
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
-
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
             }
 
             // einde tonnes
@@ -229,8 +274,10 @@ class MainActivity : AppCompatActivity() {
                 var resultInNumbers = insertedAmount.toDouble() / 2.205
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
             if (insertedAmount.isNotEmpty() && mSelectedOption == 4 && mSelectedOption2 == 1){
@@ -238,8 +285,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
@@ -248,8 +297,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
             if (insertedAmount.isNotEmpty() && mSelectedOption == 4 && mSelectedOption2 == 3){
@@ -257,8 +308,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
             if (insertedAmount.isNotEmpty() &&  mSelectedOption == 4 && mSelectedOption2 == 4){
@@ -266,8 +319,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                var resultInCharacters = resultInNumbers.toString()
-                binding.tvOutcome.text = resultInCharacters
+                val bd = BigDecimal(resultInNumbers)
+                val roundOff = bd.setScale(2, RoundingMode.FLOOR)
+                val roundOffToString = roundOff.toString()
+                binding.tvOutcome.text = roundOffToString
 
             }
 
