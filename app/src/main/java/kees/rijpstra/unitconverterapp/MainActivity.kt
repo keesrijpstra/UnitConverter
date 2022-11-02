@@ -1,5 +1,6 @@
 package kees.rijpstra.unitconverterapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.ScriptIntrinsicBLAS.UNIT
@@ -7,20 +8,43 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+
 import kees.rijpstra.unitconverterapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    //viewBinding
     private lateinit var binding: ActivityMainBinding
+
+    //list of units
     val units: Array<String> = arrayOf("Kilo", "Gram", "Ounce", "Tonne", "Pound")
-    val units2: Array<String> = arrayOf("Kilo", "Gram", "Ounce", "Tonne")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.myToolbar)
+        val switchChecked = binding.theme
+
+        switchChecked.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                val toolBar = binding.myToolbar
+                toolBar.setBackgroundColor(Color.parseColor("#f44336"))
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
+
+
+        // initializes the stored positions
         var mSelectedOption = 0
         var mSelectedOption2 = 0
 
+        // converter logic
         fun calculate() {
             var insertedAmount = binding.editInput.text.toString()
 
@@ -254,7 +278,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
+        // initialize button
         val button = binding.calculateButton
         button.setOnClickListener {
             calculate()
@@ -262,14 +286,11 @@ class MainActivity : AppCompatActivity() {
 
         //initalize spinner
         val arrayAdapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_dropdown_item,units)
-        // spinner1
+        // spinner1 dropdownlist
         binding.spinner.adapter = arrayAdapter
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 mSelectedOption = position
-                    Toast.makeText(this@MainActivity, "im a kilo $mSelectedOption", Toast.LENGTH_SHORT).show()
-
-
 
             }
 
@@ -281,18 +302,15 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        // 2nd spinner
-
+        // 2nd spinner dropdownlist
+        //initalize spinner
         val arrayAdapter2 = ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_dropdown_item,units)
 
         binding.spinner2.adapter = arrayAdapter2
         binding.spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-
+                    //stores at what position the spinner is
                     mSelectedOption2 = position
-
-                Toast.makeText(this@MainActivity, "option is $mSelectedOption2", Toast.LENGTH_SHORT).show()
 
             }
 
