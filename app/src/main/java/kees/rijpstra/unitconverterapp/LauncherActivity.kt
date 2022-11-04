@@ -40,5 +40,10 @@ class LauncherActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        binding.cardView2.setOnClickListener {
+            val intent = Intent(this, TemperatureActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
