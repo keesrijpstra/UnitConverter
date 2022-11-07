@@ -17,30 +17,27 @@ class LauncherActivity : AppCompatActivity() {
         binding = ActivityLauncherBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.myToolbar)
+
         val switchChecked = binding.theme
 
+// checks if the lightmode toggle is checked
         switchChecked.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 // makes the colors darker for dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                val toolBar = binding.myToolbar
-                val icon = binding.toolBarIcon
 
 
-                toolBar.setBackgroundColor(Color.parseColor("#ba000d"))
-                icon.setImageResource(R.drawable.ic_baseline_light_mode_24)
 
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
-
+        // directs to other app page
         binding.cardView.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
+        // directs to other app page
         binding.cardView2.setOnClickListener {
             val intent = Intent(this, TemperatureActivity::class.java)
             startActivity(intent)
